@@ -1,5 +1,6 @@
 {
 	"recommendations": [
+		"angular.ng-template",
 		"espressif.esp-idf-extension",
 		"ms-dotnettools.csharp",
 		"ms-python.python",
