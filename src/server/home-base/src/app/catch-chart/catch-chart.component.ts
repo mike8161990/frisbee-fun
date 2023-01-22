@@ -1,7 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { Chart } from 'chart.js/auto';
 import 'chartjs-adapter-moment';
-import { max } from 'moment';
 import { CatchEvent } from '../dtos';
 
 @Component({
@@ -34,16 +33,22 @@ export class CatchChartComponent implements OnChanges {
             label: "Acceleration X",
             data: this.catchEvent.telemetryPoints.map(p => p.accelerationX),
             backgroundColor: 'red',
+            borderWidth: 5,
+            borderColor: 'red',
           },
           {
             label: "Acceleration Y",
             data: this.catchEvent.telemetryPoints.map(p => p.accelerationY),
             backgroundColor: 'green',
+            borderWidth: 5,
+            borderColor: 'green',
           },
           {
             label: "Acceleration Z",
             data: this.catchEvent.telemetryPoints.map(p => p.accelerationZ),
             backgroundColor: 'blue',
+            borderWidth: 5,
+            borderColor: 'blue',
           },
         ],
       },

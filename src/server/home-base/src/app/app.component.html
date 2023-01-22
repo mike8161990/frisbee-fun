@@ -1,9 +1,20 @@
-<mat-toolbar color="primary" class="topbar">
-  Frisbee Fun
-  <button mat-raised-button color="accent" (click)="triggerCatch()">
-    <mat-icon>add</mat-icon>
-    Trigger Catch
-  </button>
-</mat-toolbar>
+<div class="all">
+  <div class="header">
+    <mat-toolbar color="primary" class="topbar">
+      Frisbee Fun
+      <button mat-raised-button color="accent" (click)="triggerCatch()">
+        <mat-icon>add</mat-icon>
+        Trigger Catch
+      </button>
+    </mat-toolbar>
+  </div>
 
-<app-catch-events></app-catch-events>
+  <div class="body">
+    <div class="left">
+      <app-catch-chart [catchEvent]="selectedCatch"></app-catch-chart>
+    </div>
+    <div class="right">
+      <app-catch-events [catchEvents]="catchEvents"></app-catch-events>
+    </div>
+  </div>
+</div>

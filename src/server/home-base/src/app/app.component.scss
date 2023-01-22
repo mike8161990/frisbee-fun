@@ -2,3 +2,22 @@
     display: flex;
     justify-content: space-between;
 }
+
+.all {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.body {
+    display: flex;
+    min-height: 0;
+}
+
+.left {
+    flex: 4;
+}
+
+.right {
+    flex: 1;
+}
