@@ -1,4 +1,5 @@
 export interface CatchEvent {
+    catchEventId: number;
     timestamp: Date;
     telemetryPoints: TelemetryPoint[];
 }

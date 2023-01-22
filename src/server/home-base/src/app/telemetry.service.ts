@@ -9,6 +9,10 @@ import { CatchEvent } from './dtos';
 export class TelemetryService {
   constructor(private readonly http: HttpClient) { }
 
+  createCatchEvent(): Observable<unknown> {
+    return this.http.post<unknown>('/api/catch-events', null);
+  }
+
   getCatchEvents(): Observable<CatchEvent[]> {
     return this.http.get<CatchEvent[]>('/api/catch-events');
   }

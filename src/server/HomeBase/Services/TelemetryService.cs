@@ -39,6 +39,7 @@ public class TelemetryService : ITelemetryService
                     AccelerationY = p.AccelerationY,
                     AccelerationZ = p.AccelerationZ,
                 })
+                .OrderBy(p => p.Timestamp)
                 .ToList(),
             });
         await this.context.SaveChangesAsync();
@@ -46,8 +47,10 @@ public class TelemetryService : ITelemetryService
 
     private static Expression<Func<CatchEventEntity, CatchEvent>> MapCatchEvents = catchEvent => new CatchEvent
     {
+        CatchEventId = catchEvent.CatchEventId,
         Timestamp = catchEvent.Timestamp,
         TelemetryPoints = catchEvent.TelemetryPoints
+            .OrderBy(telemetryPoint => telemetryPoint.Timestamp)
             .Select(telemetryPoint => new TelemetryPoint
             {
                 Timestamp = telemetryPoint.Timestamp,
