@@ -47,19 +47,19 @@ public class TelemetryService : ITelemetryService
 
     public async Task SaveCatchEventsAsync(List<CatchEventSubmission> catchEvents)
     {
-        var offsetMs = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() - catchEvents.Max(c => c.Timestamp);
+        var offsetMs = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() - catchEvents.Max(c => c.T);
 
         this.context.CatchEvents.AddRange(catchEvents
             .Select(c => new CatchEventEntity
             {
-                Timestamp = DateTimeOffset.FromUnixTimeMilliseconds(c.Timestamp + offsetMs),
-                TelemetryPoints = c.TelemetryPoints
+                Timestamp = DateTimeOffset.FromUnixTimeMilliseconds(c.T + offsetMs),
+                TelemetryPoints = c.P
                     .Select(p => new TelemetryPointEntity
                     {
-                        Timestamp = DateTimeOffset.FromUnixTimeMilliseconds(p.Timestamp + offsetMs),
-                        AccelerationX = p.AccelerationX,
-                        AccelerationY = p.AccelerationY,
-                        AccelerationZ = p.AccelerationZ,
+                        Timestamp = DateTimeOffset.FromUnixTimeMilliseconds(p.T + offsetMs),
+                        AccelerationX = p.X,
+                        AccelerationY = p.Y,
+                        AccelerationZ = p.Z,
                     })
                     .ToList()
             }));

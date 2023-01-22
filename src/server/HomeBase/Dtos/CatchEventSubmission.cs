@@ -2,7 +2,7 @@ namespace HomeBase.Dtos;
 
 public class CatchEventSubmission
 {
-    public long Timestamp { get; set; }
+    public long T { get; set; }
 
-    public List<TelemetryPointSubmission> TelemetryPoints { get; set; } = new List<TelemetryPointSubmission>();
+    public List<TelemetryPointSubmission> P { get; set; } = new List<TelemetryPointSubmission>();
 }
