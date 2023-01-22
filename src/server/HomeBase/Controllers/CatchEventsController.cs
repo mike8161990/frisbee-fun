@@ -16,10 +16,17 @@ public class CatchEventsController : ControllerBase
     }
 
     [HttpPost]
-    [Route("")]
-    public async Task CreateCatchEvent()
+    [Route("fake")]
+    public async Task CreateFakeCatchEvent()
     {
         await this.telemetryService.CreateFakeCatchEventAsync();
+    }
+
+    [HttpPost]
+    [Route("")]
+    public async Task SaveCatchEventsAsync(List<CatchEventSubmission> catchEvents)
+    {
+        await this.telemetryService.SaveCatchEventsAsync(catchEvents);
     }
 
     [HttpGet]

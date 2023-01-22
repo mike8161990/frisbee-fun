@@ -10,7 +10,7 @@ export class TelemetryService {
   constructor(private readonly http: HttpClient) { }
 
   createCatchEvent(): Observable<unknown> {
-    return this.http.post<unknown>('/api/catch-events', null);
+    return this.http.post<unknown>('/api/catch-events/fake', null);
   }
 
   getCatchEvents(): Observable<CatchEvent[]> {
